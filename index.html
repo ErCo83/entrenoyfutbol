@@ -2,128 +2,179 @@
 <html lang="es-AR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi plan · entreno y fútbol</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Entreno &amp; Fútbol</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1d4b39">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" type="image/png" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Sometype+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Sometype+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#f3efe5;--paper:#fbf9f3;--ink:#16271f;--ink-soft:#3d5046;--pitch:#1d4b39;--pitch-deep:#143527;--accent:#e2643a;--accent-soft:#f3b48f;--line:#d9d2c2;--green:#2f8f5b;--red:#c2452e;--blue:#33508a;--shadow:0 1px 0 rgba(20,40,30,.04),0 10px 24px -18px rgba(20,53,39,.5)}
+  :root{
+    --bg:#eef0ec;--surface:#ffffff;--surface-2:#f7f8f6;
+    --ink:#1a201d;--ink-soft:#69736d;--ink-faint:#9aa39c;
+    --pitch:#1d4b39;--pitch-deep:#143527;--accent:#e2643a;--accent-soft:#f3b48f;
+    --line:#e7e9e5;--line-2:#dfe2dd;--green:#2f8f5b;--red:#c2452e;--blue:#3a6ea5;
+    --r:18px;--shadow:0 1px 2px rgba(20,40,30,.04),0 12px 28px -22px rgba(20,53,39,.4);
+  }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-  body{background:var(--bg);color:var(--ink);font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:78px;background-image:radial-gradient(circle at 90% 0%,rgba(226,100,58,.06),transparent 34%)}
-  h1,h2,h3,h4{font-family:"Bricolage Grotesque",sans-serif;letter-spacing:-.01em;line-height:1.1}
-  header{background:linear-gradient(160deg,var(--pitch),var(--pitch-deep));color:#f3efe5;padding:20px 18px 18px;border-bottom:3px solid var(--accent);position:relative;overflow:hidden}
-  header::after{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;border:2px solid rgba(255,255,255,.14)}
-  header .eyebrow{font-family:"Sometype Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-soft)}
-  header h1{font-size:1.7rem;font-weight:800;margin-top:4px}
-  .conn{font-family:"Sometype Mono",monospace;font-size:10px;margin-top:6px;color:#bcd2c4}
-  .conn .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#888;margin-right:5px;vertical-align:middle}
-  .conn.ok .dot{background:#5fce93}.conn.bad .dot{background:#e88a76}
-  .weekbar{display:flex;gap:5px;margin-top:14px}
-  .wb{flex:1;text-align:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:9px;padding:7px 2px}
-  .wb .d{font-family:"Sometype Mono",monospace;font-size:9px;letter-spacing:.06em;color:var(--accent-soft);text-transform:uppercase}
-  .wb .m{font-size:1rem;margin-top:2px;font-weight:600}
-  .wb.done{background:rgba(47,143,91,.4);border-color:#5fce93}.wb.miss{background:rgba(194,69,46,.34);border-color:#e88a76}
+  body{background:var(--bg);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:80px}
+  h1,h2,h3,h4{font-family:"Bricolage Grotesque",sans-serif;letter-spacing:-.02em;line-height:1.08}
+  .mono{font-family:"Sometype Mono",monospace}
+  header{background:linear-gradient(155deg,var(--pitch),var(--pitch-deep));color:#eef3ef;padding:22px 18px 20px;position:relative;overflow:hidden;border-radius:0 0 24px 24px}
+  header::after{content:"";position:absolute;right:-70px;top:-70px;width:200px;height:200px;border-radius:50%;border:1.5px solid rgba(255,255,255,.12)}
+  header .eyebrow{font-family:"Sometype Mono",monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft)}
+  header h1{font-size:1.65rem;font-weight:800;margin-top:5px}
+  .conn{font-family:"Sometype Mono",monospace;font-size:10px;margin-top:7px;color:#aec1b4}
+  .conn .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7d8a82;margin-right:5px;vertical-align:middle}
+  .conn.ok .dot{background:#62d39a}.conn.bad .dot{background:#ef9b85}
+  .weekbar{display:flex;gap:5px;margin-top:16px}
+  .wb{flex:1;text-align:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:8px 2px}
+  .wb .d{font-family:"Sometype Mono",monospace;font-size:9px;letter-spacing:.05em;color:var(--accent-soft);text-transform:uppercase}
+  .wb .m{font-size:1.05rem;margin-top:3px}
+  .wb.done{background:rgba(98,211,154,.26);border-color:rgba(98,211,154,.5)}
+  .wb.miss{background:rgba(239,155,133,.24);border-color:rgba(239,155,133,.5)}
   .wb.today{box-shadow:0 0 0 2px var(--accent)}
-  main{padding:16px 16px 24px;max-width:560px;margin:0 auto}
-  .view{display:none;animation:fade .35s ease}.view.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin-bottom:14px}
-  .card h2{font-size:1.15rem;font-weight:800}
+  main{padding:18px 16px 26px;max-width:600px;margin:0 auto}
+  .view{display:none;animation:fade .3s ease}.view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);margin-bottom:14px}
+  .card h2{font-size:1.1rem;font-weight:700}
   .muted{color:var(--ink-soft)}
-  .tag{font-family:"Sometype Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-  .note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 14px;margin:12px 0;font-size:.92rem}
-  .note.green{border-left-color:var(--pitch)}
+  .tag{font-family:"Sometype Mono",monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .note{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin:12px 0;font-size:.9rem;color:var(--ink-soft)}
+  .note b{color:var(--ink)}
   .banner{background:#fdf2e9;border:1px solid var(--accent-soft);color:#9a4a22;border-radius:12px;padding:10px 12px;font-size:.84rem;margin-bottom:12px;display:none}
   .stats-row{display:flex;gap:10px;margin-bottom:14px}
-  .stat{flex:1;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;box-shadow:var(--shadow)}
-  .stat b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.5rem;display:block;line-height:1}
-  .stat span{font-family:"Sometype Mono",monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
-  .calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-  .calhead button{background:var(--paper);border:1px solid var(--line);border-radius:10px;width:38px;height:38px;font-size:1.1rem;color:var(--ink);cursor:pointer}
-  .calhead h2{font-size:1.2rem;text-transform:capitalize}
+  .stat{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 8px;text-align:center;box-shadow:var(--shadow)}
+  .stat b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.55rem;font-weight:800;display:block;line-height:1}
+  .stat span{font-family:"Sometype Mono",monospace;font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+  .calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .calhead button{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;width:38px;height:38px;font-size:1.1rem;color:var(--ink);cursor:pointer}
+  .calhead h2{font-size:1.15rem;text-transform:capitalize}
   .dow{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:5px}
-  .dow span{text-align:center;font-family:"Sometype Mono",monospace;font-size:10px;color:var(--ink-soft);text-transform:uppercase}
+  .dow span{text-align:center;font-family:"Sometype Mono",monospace;font-size:9.5px;color:var(--ink-faint);text-transform:uppercase}
   .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-  .cell{aspect-ratio:1/1.15;border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:4px 3px 3px;display:flex;flex-direction:column;align-items:center;cursor:pointer;position:relative;overflow:hidden}
+  .cell{aspect-ratio:1/1.12;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);padding:5px 3px 3px;display:flex;flex-direction:column;align-items:center;cursor:pointer;position:relative;overflow:hidden;transition:transform .1s}
+  .cell:active{transform:scale(.95)}
   .cell.empty{border:none;background:transparent;cursor:default}
-  .cell .num{font-family:"Sometype Mono",monospace;font-size:12px;color:var(--ink-soft)}
-  .cell .ic{font-size:.92rem;margin-top:1px;line-height:1}
-  .cell .st{position:absolute;bottom:3px;width:7px;height:7px;border-radius:50%}
-  .cell .extra{position:absolute;top:2px;left:4px;font-size:.7rem;color:var(--blue);font-weight:700;line-height:1}
-  .cell.rest{background:#eee9dd;opacity:.85}
-  .cell.gym{border-top:3px solid var(--accent)}.cell.foot{border-top:3px solid var(--pitch)}
-  .cell.today{box-shadow:0 0 0 2px var(--accent)}.cell.fut{opacity:.45}
+  .cell .num{font-family:"Sometype Mono",monospace;font-size:11.5px;color:var(--ink-soft)}
+  .cell .ic{font-size:.9rem;margin-top:2px;line-height:1}
+  .cell .st{position:absolute;bottom:4px;width:6px;height:6px;border-radius:50%}
+  .cell .extra{position:absolute;top:3px;left:4px;font-size:.62rem;color:var(--blue);font-weight:800;line-height:1}
+  .cell.rest{background:#e7e9e4;opacity:.9}
+  .cell.gym{border-top:2.5px solid var(--accent)}.cell.foot{border-top:2.5px solid var(--pitch)}
+  .cell.today{box-shadow:0 0 0 2px var(--accent)}.cell.fut{opacity:.42}
   .st.done{background:var(--green)}.st.miss{background:var(--red)}
-  .cell.done .num{color:var(--green);font-weight:600}.cell.miss .num{color:var(--red)}
-  .legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:.8rem}
+  .cell.done .num{color:var(--green);font-weight:700}.cell.miss .num{color:var(--red)}
+  .legend{display:flex;gap:11px;flex-wrap:wrap;margin-top:13px;font-size:.78rem;color:var(--ink-soft)}
   .legend span{display:flex;align-items:center;gap:5px}
-  .dotg{width:9px;height:9px;border-radius:50%;background:var(--green)}.dotr{width:9px;height:9px;border-radius:50%;background:var(--red)}
-  .swg{width:11px;height:11px;border-radius:3px;border-top:3px solid var(--accent);background:var(--paper)}
-  .swf{width:11px;height:11px;border-radius:3px;border-top:3px solid var(--pitch);background:var(--paper)}
-  .plusmark{color:var(--blue);font-weight:700}
+  .dotg{width:8px;height:8px;border-radius:50%;background:var(--green)}.dotr{width:8px;height:8px;border-radius:50%;background:var(--red)}
+  .swg{width:10px;height:10px;border-radius:3px;border-top:2.5px solid var(--accent);background:var(--surface-2)}
+  .swf{width:10px;height:10px;border-radius:3px;border-top:2.5px solid var(--pitch);background:var(--surface-2)}
+  .plusmark{color:var(--blue);font-weight:800}
   .seg{display:flex;gap:6px;margin-bottom:14px}
-  .seg button{flex:1;font-family:"Sometype Mono",monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:9px 4px;border:1px solid var(--line);background:var(--paper);border-radius:10px;cursor:pointer;color:var(--ink-soft)}
+  .seg button{flex:1;font-family:"Sometype Mono",monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding:10px 4px;border:1px solid var(--line);background:var(--surface);border-radius:11px;cursor:pointer;color:var(--ink-soft)}
   .seg button.on{background:var(--pitch);color:#fff;border-color:var(--pitch)}
   ol.ex{list-style:none;counter-reset:e}
-  ol.ex li{counter-increment:e;border-top:1px dashed var(--line)}ol.ex li:first-child{border-top:none}
-  ol.ex .row{display:block;padding:11px 0 11px 36px;position:relative;cursor:pointer}
-  ol.ex .row::before{content:counter(e);position:absolute;left:0;top:11px;width:24px;height:24px;background:var(--pitch);color:#fff;border-radius:7px;font-family:"Sometype Mono",monospace;font-size:11px;display:grid;place-items:center}
-  ol.ex .nm{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1rem}
-  ol.ex .rp{font-family:"Sometype Mono",monospace;font-size:.74rem;color:var(--ink-soft);display:block;margin-top:1px}
+  ol.ex li{counter-increment:e;border-top:1px solid var(--line)}ol.ex li:first-child{border-top:none}
+  ol.ex .row{display:block;padding:12px 0 12px 36px;position:relative;cursor:pointer}
+  ol.ex .row::before{content:counter(e);position:absolute;left:0;top:12px;width:24px;height:24px;background:var(--pitch);color:#fff;border-radius:8px;font-family:"Sometype Mono",monospace;font-size:11px;display:grid;place-items:center}
+  ol.ex .nm{font-weight:700;font-size:.98rem}
+  ol.ex .rp{font-family:"Sometype Mono",monospace;font-size:.72rem;color:var(--ink-soft);display:block;margin-top:1px}
   ol.ex .rp b{color:var(--accent)}
   .open .ex-detail{display:block}
-  .ex-detail{display:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin:2px 0 6px 36px;font-size:.88rem}
+  .ex-detail{display:none;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin:2px 0 8px 36px;font-size:.86rem}
   .ex-detail dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px}
-  .ex-detail dt{font-family:"Sometype Mono",monospace;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pitch);padding-top:3px}
+  .ex-detail dt{font-family:"Sometype Mono",monospace;font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;color:var(--pitch);padding-top:3px}
   .ex-detail dd{color:var(--ink-soft)}
-  .badge{display:inline-block;font-family:"Sometype Mono",monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-top:8px;margin-right:5px}
-  .badge.maq{background:#e7ecf5;color:#33508a}.badge.libre{background:#f7e7d2;color:#9a6a1e}.badge.knee{background:#dcebe2;color:var(--pitch)}
-  label.fld{display:block;font-family:"Sometype Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
-  input[type=number],input[type=date],input[type=text]{width:100%;font-family:"Sometype Mono",monospace;font-size:1rem;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+  .badge{display:inline-block;font-family:"Sometype Mono",monospace;font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-top:8px;margin-right:5px}
+  .badge.maq{background:#e8eef5;color:#33508a}.badge.libre{background:#f6ead9;color:#9a6a1e}.badge.knee{background:#dcebe2;color:var(--pitch)}
+  label.fld{display:block;font-family:"Sometype Mono",monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+  input[type=number],input[type=date],input[type=text]{width:100%;font-family:"Hanken Grotesk",sans-serif;font-size:1rem;padding:11px;border:1px solid var(--line-2);border-radius:11px;background:var(--surface);color:var(--ink)}
+  input:focus{outline:none;border-color:var(--accent)}
   .frow{display:flex;gap:10px;margin-bottom:10px}.frow>div{flex:1}
-  button.act{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:.95rem;padding:11px 16px;border:none;border-radius:11px;background:var(--accent);color:#fff;cursor:pointer;width:100%}
-  button.ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
-  svg.chart{width:100%;height:160px;display:block;margin-top:8px}
-  table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:6px}
-  th,td{text-align:left;padding:6px 4px;border-bottom:1px solid var(--line)}
-  th{font-family:"Sometype Mono",monospace;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
-  .ov{position:fixed;inset:0;background:rgba(20,40,30,.55);display:none;align-items:flex-end;justify-content:center;z-index:50}
+  button.act{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:.95rem;padding:13px 16px;border:none;border-radius:13px;background:var(--accent);color:#fff;cursor:pointer;width:100%}
+  button.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line-2)}
+  svg.chart{width:100%;height:150px;display:block;margin-top:8px}
+  table{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:6px}
+  th,td{text-align:left;padding:7px 4px;border-bottom:1px solid var(--line)}
+  th{font-family:"Sometype Mono",monospace;font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint)}
+  /* MODAL */
+  .ov{position:fixed;inset:0;background:rgba(20,40,30,.5);display:none;align-items:flex-end;justify-content:center;z-index:50;backdrop-filter:blur(2px)}
   .ov.show{display:flex}
-  .sheet{background:var(--bg);width:100%;max-width:560px;border-radius:20px 20px 0 0;padding:18px 18px 26px;max-height:88vh;overflow:auto;animation:up .28s ease}
+  .sheet{background:var(--bg);width:100%;max-width:600px;border-radius:24px 24px 0 0;padding:8px 16px 26px;max-height:92vh;overflow:auto;animation:up .3s cubic-bezier(.2,.8,.2,1)}
   @keyframes up{from{transform:translateY(100%)}to{transform:none}}
-  .sheet h3{font-size:1.2rem;font-weight:800}
-  .sheet .when{font-family:"Sometype Mono",monospace;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
-  .seclabel{font-family:"Sometype Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:18px 0 7px}
+  .grab{width:38px;height:4px;background:var(--line-2);border-radius:99px;margin:8px auto 12px}
+  .sheet h3{font-size:1.25rem;font-weight:800}
+  .sheet .when{font-family:"Sometype Mono",monospace;font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .acc{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+  .acc>.h{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1rem}
+  .acc>.h .chev{color:var(--ink-faint);transition:transform .2s;font-size:.9rem}
+  .acc.open>.h .chev{transform:rotate(90deg)}
+  .acc>.b{display:none;padding:0 16px 16px}
+  .acc.open>.b{display:block}
+  .acc .summary{font-family:"Sometype Mono",monospace;font-size:.66rem;color:var(--ink-soft);text-transform:none;letter-spacing:0}
+  .seclabel{font-family:"Sometype Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin:16px 0 7px}
+  .seclabel:first-child{margin-top:4px}
   .mark{display:flex;gap:8px}
-  .mark button{flex:1;padding:12px 6px;border-radius:12px;border:1px solid var(--line);background:var(--paper);font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:.92rem;cursor:pointer}
+  .mark button{flex:1;padding:12px 6px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface-2);font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:.9rem;cursor:pointer}
   .mark button.gon{background:var(--green);color:#fff;border-color:var(--green)}
   .mark button.ron{background:var(--red);color:#fff;border-color:var(--red)}
   .acts{display:flex;gap:8px}
-  .actbtn{flex:1;padding:12px 6px;border-radius:12px;border:1px solid var(--line);background:var(--paper);font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:.9rem;cursor:pointer}
+  .actbtn{flex:1;padding:12px 6px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface-2);font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:.88rem;cursor:pointer}
   .actbtn.on{background:var(--pitch);color:#fff;border-color:var(--pitch)}
-  .loggerbox{margin-top:6px}
-  .logrow{border-top:1px dashed var(--line);padding:10px 0}
+  .emoji{display:flex;gap:6px}
+  .emoji button{flex:1;aspect-ratio:1;border:1px solid var(--line-2);background:var(--surface-2);border-radius:12px;font-size:1.4rem;cursor:pointer;line-height:1;display:grid;place-items:center;filter:grayscale(.6);opacity:.7}
+  .emoji button.on{filter:none;opacity:1;border-color:var(--accent);background:#fff;box-shadow:0 0 0 2px var(--accent-soft)}
+  .logrow{border-top:1px solid var(--line);padding:11px 0}
+  .logrow:first-of-type{border-top:none}
   .logrow .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
-  .logrow .lname{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:.96rem}
-  .logrow .rmv{background:none;border:none;color:var(--red);font-size:1.2rem;cursor:pointer;padding:0 4px;line-height:1}
-  .logrow .fields{display:flex;gap:8px;margin-top:7px}
+  .logrow .lname{font-weight:700;font-size:.94rem}
+  .logrow .rmv{background:none;border:none;color:var(--red);font-size:1.15rem;cursor:pointer;padding:0 4px}
+  .logrow .fields{display:flex;gap:8px;margin-top:8px}
   .logrow .fields .f{flex:1}
-  .logrow .fields label{display:block;font-family:"Sometype Mono",monospace;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px;text-align:center}
-  .logrow .fields input{width:100%;padding:8px 2px;text-align:center;font-family:"Sometype Mono",monospace;font-size:.95rem}
-  .searchwrap{margin-top:12px}
-  #exSearch{border:1px dashed var(--accent);font-family:"Newsreader",serif}
-  .suggest{margin-top:6px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;display:none}
-  .suggest.show{display:block;max-height:200px;overflow:auto}
-  .suggest div{padding:10px 12px;cursor:pointer;font-size:.92rem;border-top:1px solid var(--line)}
+  .logrow .fields label{display:block;font-family:"Sometype Mono",monospace;font-size:.54rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px;text-align:center}
+  .logrow .fields input{padding:9px 2px;text-align:center;font-family:"Sometype Mono",monospace}
+  .searchwrap{margin-top:12px;position:relative}
+  #exSearch{border:1px dashed var(--accent)}
+  .suggest{margin-top:6px;border:1px solid var(--line-2);border-radius:11px;overflow:hidden;background:#fff;display:none}
+  .suggest.show{display:block;max-height:210px;overflow:auto}
+  .suggest div{padding:11px 13px;cursor:pointer;font-size:.9rem;border-top:1px solid var(--line)}
   .suggest div:first-child{border-top:none}
-  .suggest .add{color:var(--accent);font-weight:600}
-  .close{display:block;margin-top:14px}
-  .tabbar{position:fixed;bottom:0;left:0;right:0;background:rgba(251,249,243,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;z-index:40}
-  .tabbar button{flex:1;background:none;border:none;padding:10px 4px 12px;cursor:pointer;color:var(--ink-soft);font-family:"Sometype Mono",monospace;font-size:10px;letter-spacing:.04em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:3px}
-  .tabbar button .i{font-size:1.25rem;line-height:1}
-  .tabbar button.on{color:var(--accent)}
-  .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:12px;font-size:.85rem;z-index:60;opacity:0;transition:opacity .25s;pointer-events:none;max-width:90%;text-align:center}
+  .suggest .add{color:var(--accent);font-weight:700}
+  .meal{margin-top:12px}
+  .meal>.mh{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:.92rem;display:flex;justify-content:space-between;align-items:baseline}
+  .meal>.mh .mk{font-family:"Sometype Mono",monospace;font-size:.72rem;color:var(--ink-soft)}
+  .fitem{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+  .fitem .fk{font-family:"Sometype Mono",monospace;font-size:.78rem;color:var(--ink-soft);white-space:nowrap}
+  .fitem .rmv{background:none;border:none;color:var(--red);font-size:1rem;cursor:pointer;padding:0 2px}
+  .faddrow{display:flex;gap:6px;margin-top:7px}
+  .faddrow input.d{flex:1}
+  .faddrow input.k{width:74px;text-align:center;font-family:"Sometype Mono",monospace}
+  .faddrow button{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:10px;width:42px;font-size:1.1rem;cursor:pointer}
+  .kcalbox{margin-top:16px;background:var(--surface-2);border:1px solid var(--line);border-radius:13px;padding:13px}
+  .kcalbar{height:10px;border-radius:99px;background:#e3e6e1;overflow:hidden;margin:9px 0 8px}
+  .kcalbar>span{display:block;height:100%;border-radius:99px;background:var(--accent)}
+  .kcalrow{display:flex;justify-content:space-between;font-size:.82rem;font-family:"Sometype Mono",monospace;color:var(--ink-soft)}
+  .kcalverdict{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:.95rem;margin-top:6px}
+  .kcalverdict.def{color:var(--green)}.kcalverdict.sur{color:var(--accent)}
+  .close{display:block;margin-top:12px}
+  .wcards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .wcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px;box-shadow:var(--shadow)}
+  .wcard .wl{font-family:"Sometype Mono",monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint)}
+  .wcard .wv{font-size:1.5rem;margin-top:2px}
+  .wcard svg{width:100%;height:42px;display:block;margin-top:4px}
+  .tabbar{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;z-index:40;padding-bottom:env(safe-area-inset-bottom)}
+  .tabbar button{flex:1;background:none;border:none;padding:11px 4px 13px;cursor:pointer;color:var(--ink-faint);font-family:"Sometype Mono",monospace;font-size:9.5px;letter-spacing:.03em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:3px}
+  .tabbar button .i{font-size:1.2rem;line-height:1;filter:grayscale(.5);opacity:.6}
+  .tabbar button.on{color:var(--accent)}.tabbar button.on .i{filter:none;opacity:1}
+  .toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 18px;border-radius:13px;font-size:.85rem;z-index:60;opacity:0;transition:opacity .25s;pointer-events:none;max-width:90%;text-align:center}
   .toast.show{opacity:1}
 </style>
 </head>
@@ -146,31 +197,34 @@
       <div class="calhead"><button id="prevM">‹</button><h2 id="calTitle">—</h2><button id="nextM">›</button></div>
       <div class="dow"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
       <div class="grid" id="calGrid"></div>
-      <div class="legend"><span><i class="swg"></i> Gym</span><span><i class="swf"></i> Fútbol</span><span><i class="dotg"></i> Cumplí</span><span><i class="dotr"></i> No fui</span><span><b class="plusmark">＋</b> Extra</span></div>
-      <div class="note" style="margin-top:14px">Tocá cualquier día para registrar lo que hiciste (incluso actividades no planificadas) y las cargas del gimnasio.</div>
+      <div class="legend"><span><i class="swg"></i> Gym</span><span><i class="swf"></i> Fútbol</span><span><i class="dotg"></i> Hecho</span><span><i class="dotr"></i> No fui</span><span><b class="plusmark">＋</b> Extra</span></div>
+      <div class="note" style="margin-top:14px">Tocá un día para registrar actividad, bienestar y alimentación.</div>
     </div>
   </section>
   <section class="view" id="v-plan">
-    <div class="note green">Tocá un ejercicio para ver cómo se hace. Esta es tu rutina base; en el calendario podés registrar lo que hacés realmente.</div>
+    <div class="note">Tu rutina base. En el calendario registrás lo que hacés realmente.</div>
     <div class="seg" id="segPlan"><button class="on" data-s="A">Sesión A</button><button data-s="B">Sesión B</button><button data-s="C">Sesión C</button></div>
     <div class="card" id="planCard"></div>
   </section>
   <section class="view" id="v-prog">
     <div class="card">
-      <span class="tag">Registro corporal</span><h2 style="margin:2px 0 12px">Peso y cintura</h2>
+      <span class="tag">Registro corporal</span><h2 style="margin:3px 0 13px">Peso y cintura</h2>
       <div class="frow"><div><label class="fld">Fecha</label><input type="date" id="mDate"></div></div>
       <div class="frow"><div><label class="fld">Peso (kg)</label><input type="number" id="mW" step="0.1" placeholder="73"></div><div><label class="fld">Cintura (cm)</label><input type="number" id="mWaist" step="0.5" placeholder="—"></div></div>
-      <button class="act" id="saveMetric">Guardar registro</button>
+      <button class="act" id="saveMetric">Guardar</button>
     </div>
     <div class="card">
-      <span class="tag">Tendencia de peso</span><h2 style="margin:2px 0 4px">Evolución</h2>
-      <p class="muted" style="font-size:.85rem">Objetivo ~70 kg · bajada sana ~0,3–0,5 kg/sem</p>
-      <svg class="chart" id="chart" viewBox="0 0 320 160" preserveAspectRatio="none"></svg>
+      <span class="tag">Tendencia de peso</span><h2 style="margin:3px 0 4px">Evolución</h2>
+      <p class="muted" style="font-size:.84rem">Objetivo ~70 kg · <span id="kcalInfo"></span></p>
+      <svg class="chart" id="chart" viewBox="0 0 320 150" preserveAspectRatio="none"></svg>
       <div id="metricTable"></div>
     </div>
     <div class="card">
-      <span class="tag">Cargas en el gym</span><h2 style="margin:2px 0 4px">Últimos pesos por ejercicio</h2>
-      <p class="muted" style="font-size:.85rem">Se completan desde el calendario, al registrar un día de gym.</p>
+      <span class="tag">Bienestar</span><h2 style="margin:3px 0 12px">Energía, ánimo y sueño</h2>
+      <div class="wcards" id="wellCards"></div>
+    </div>
+    <div class="card">
+      <span class="tag">Cargas en el gym</span><h2 style="margin:3px 0 4px">Últimos por ejercicio</h2>
       <div id="loadHistory"></div>
     </div>
   </section>
@@ -186,93 +240,99 @@
 <script>
 /* ======================= CONFIGURACIÓN ======================= */
 const CONFIG = {
-  API_URL: "https://script.google.com/macros/s/AKfycbxZI2q-zMM6bSeBoiD6SqVFaGPQm9JirzX9kIFW0xkP-zgFvxSq0PGvYx6aHmRmriTA/exec",            // <-- pegá acá la URL del Apps Script (termina en /exec)
-  TOKEN:   "miappfuerza"   // <-- la misma palabra secreta que el SECRET del Apps Script
+  API_URL: "https://script.google.com/macros/s/AKfycbxZI2q-zMM6bSeBoiD6SqVFaGPQm9JirzX9kIFW0xkP-zgFvxSq0PGvYx6aHmRmriTA/exec",            // <-- pegá la URL del Apps Script (/exec)
+  TOKEN:   "miappfuerza"   // <-- misma palabra secreta que SECRET
 };
+/* PERFIL para el cálculo calórico */
+const PERFIL = { nacimiento:"1983-09-19", alturaCm:164, sexo:"M", factorActividad:1.55, deficit:350 };
 /* ============================================================= */
 
-/* ---------- API (JSONP, a prueba de CORS) ---------- */
-let _jsonpId=0;
+/* ---------- API (JSONP) ---------- */
+let _jid=0;
 function jsonp(params){
   return new Promise((resolve,reject)=>{
     if(!CONFIG.API_URL){reject(new Error("sin URL"));return;}
-    const cb="__cb_"+Date.now()+"_"+(_jsonpId++);
+    const cb="__cb_"+Date.now()+"_"+(_jid++);
     const q=Object.assign({},params,{token:CONFIG.TOKEN,callback:cb});
     const qs=Object.keys(q).map(k=>{let v=q[k];if(v==null)v="";return encodeURIComponent(k)+"="+encodeURIComponent(v);}).join("&");
     const s=document.createElement("script");
     const timer=setTimeout(()=>{cleanup();reject(new Error("timeout"));},15000);
     function cleanup(){clearTimeout(timer);delete window[cb];if(s.parentNode)s.parentNode.removeChild(s);}
-    window[cb]=(data)=>{cleanup();resolve(data);};
+    window[cb]=(d)=>{cleanup();resolve(d);};
     s.onerror=()=>{cleanup();reject(new Error("network"));};
     s.src=CONFIG.API_URL+"?"+qs;document.body.appendChild(s);
   });
 }
 async function apiGet(){return await jsonp({action:"read"});}
-async function apiPost(params){try{await jsonp(params);}catch(err){toast("Sin conexión: no se pudo guardar.");}}
+async function apiPost(p){try{await jsonp(p);}catch(e){toast("Sin conexión: no se guardó.");}}
 
 /* ---------- DATA ---------- */
 const SCHED={1:{type:"gym",id:"A",label:"Gym · Sesión A",sub:"Full body",ic:"🏋️"},2:{type:"foot",label:"Fútbol",sub:"Cancha de 6 · amigos",ic:"⚽"},3:{type:"gym",id:"B",label:"Gym · Sesión B",sub:"Superior + isquios",ic:"🏋️"},4:{type:"foot",label:"Fútbol",sub:"Cancha de 5 · padres",ic:"⚽"},5:{type:"gym",id:"C",label:"Gym · Sesión C",sub:"Superior + core",ic:"🏋️"},6:{type:"foot",label:"Fútbol · torneo",sub:"Cancha de 7",ic:"⚽"},0:{type:"rest",label:"Descanso",sub:"Caminata suave",ic:"😴"}};
 const SESSIONS={
- A:[{n:"Prensa de piernas",rp:"3 × 12",w:"~40–50 kg",b:["maq","knee"],ini:"Sentado, pies en la plataforma al ancho de hombros, cola y espalda apoyadas.",h:"Bajá flexionando rodillas a ~90°, empujá con los talones sin trabar las rodillas.",cl:"Rodillas alineadas con la punta del pie, no hacia adentro."},
-   {n:"Curl femoral (máquina)",rp:"3 × 12",w:"~15–25 kg",b:["maq","knee"],ini:"Almohadilla detrás de los tobillos, piernas estiradas.",h:"Llevá los talones hacia la cola apretando los isquios; volvé controlado.",cl:"Clave para proteger el ligamento."},
-   {n:"Press de pecho (máquina)",rp:"3 × 10",w:"~20–30 kg",b:["maq"],ini:"Sentado, manijas a la altura del pecho, espalda apoyada.",h:"Empujá hasta casi estirar sin trabar codos; volvé controlado.",cl:"Trabaja pecho, hombro y tríceps."},
-   {n:"Remo sentado (máquina)",rp:"3 × 10",w:"~25–35 kg",b:["maq"],ini:"Sentado, espalda recta, pecho apoyado si se puede.",h:"Tirá hacia el abdomen llevando los codos atrás, apretá la espalda.",cl:"El movimiento lo hace la espalda, no solo el brazo."},
-   {n:"Plancha",rp:"3 × 30–45 s",w:"peso corporal",b:["libre"],ini:"Sobre antebrazos y puntas de los pies.",h:"Cuerpo en línea recta, abdomen y glúteos apretados.",cl:"No dejes caer ni subas la cadera."}],
- B:[{n:"Press de hombros (máquina)",rp:"3 × 10",w:"~15–25 kg",b:["maq"],ini:"Sentado con respaldo, manijas a la altura de los hombros.",h:"Empujá hacia arriba hasta casi estirar; bajá controlado.",cl:"No arquees la espalda baja; apretá el abdomen."},
-   {n:"Jalón al pecho (polea)",rp:"3 × 10",w:"~25–35 kg",b:["maq"],ini:"Sentado, barra ancha, muslos trabados, pecho arriba.",h:"Tirá hacia la parte alta del pecho, codos abajo y atrás.",cl:"Sin impulso del cuerpo hacia atrás."},
-   {n:"Curl femoral (máquina)",rp:"3 × 12",w:"~15–25 kg",b:["maq","knee"],ini:"Almohadilla detrás de los tobillos.",h:"Talones hacia la cola apretando los isquios.",cl:"Importante para la rodilla."},
-   {n:"Face pull (polea)",rp:"3 × 15",w:"~10–20 kg",b:["maq"],ini:"Polea a la altura de la cara, cuerda con dos manos.",h:"Tirá hacia la cara separando las manos, codos altos.",cl:"Postura y salud del hombro."},
-   {n:"Curl de bíceps (máquina/polea)",rp:"2 × 12",w:"~10–20 kg",b:["maq"],ini:"Codos pegados al cuerpo.",h:"Subí flexionando los codos sin moverlos de lugar.",cl:"Bajá controlado."},
-   {n:"Extensión de tríceps (polea)",rp:"2 × 12",w:"~15–25 kg",b:["maq"],ini:"Frente a la polea alta, codos al cuerpo.",h:"Estirá los codos hacia abajo sin mover los hombros.",cl:"Volvé controlado."},
-   {n:"Pallof press (polea)",rp:"3 × 10/lado",w:"~5–15 kg",b:["maq"],ini:"De costado a la polea, agarre pegado al pecho.",h:"Estirá los brazos resistiendo que el torso gire. 2–3 s.",cl:"Core profundo; cuida la zona lumbar."}],
- C:[{n:"Press inclinado (máquina)",rp:"3 × 10",w:"~15–25 kg",b:["maq"],ini:"Máquina/banco inclinado ~30–45°.",h:"Empujá hacia arriba y adelante; volvé controlado.",cl:"Apunta a la parte alta del pecho."},
-   {n:"Remo sentado (máquina)",rp:"3 × 12",w:"~25–35 kg",b:["maq"],ini:"Sentado, espalda recta.",h:"Tirá hacia el abdomen, codos atrás, apretá la espalda.",cl:"Controlado."},
-   {n:"Elevaciones laterales",rp:"3 × 12",w:"~4–6 kg/mano",b:["maq","libre"],ini:"Máquina lateral o mancuernas a los costados.",h:"Subí los brazos a los lados hasta los hombros.",cl:"Peso liviano: es control, no fuerza bruta."},
-   {n:"Glúteo en máquina / puente",rp:"3 × 12",w:"suave",b:["maq","knee"],ini:"Máquina de glúteo o puente en el piso.",h:"Empujá apretando glúteos hasta línea recta rodilla-hombro.",cl:"Suave: no fatigues las piernas para el sábado."},
-   {n:"Dead bug + plancha lateral",rp:"3 vueltas",w:"peso corporal",b:["libre"],ini:"Dead bug boca arriba; plancha lateral de costado.",h:"Brazo y pierna contrarios sin despegar la lumbar; plancha lateral en línea.",cl:"Core y estabilidad."}]
+ A:[{n:"Prensa de piernas",rp:"3 × 12",w:"~40–50 kg",b:["maq","knee"],ini:"Sentado, pies al ancho de hombros, cola y espalda apoyadas.",h:"Bajá a ~90°, empujá con los talones sin trabar las rodillas.",cl:"Rodillas alineadas con el pie, no hacia adentro."},
+   {n:"Curl femoral (máquina)",rp:"3 × 12",w:"~15–25 kg",b:["maq","knee"],ini:"Almohadilla detrás de los tobillos.",h:"Talones hacia la cola apretando los isquios; volvé controlado.",cl:"Clave para proteger el ligamento."},
+   {n:"Press de pecho (máquina)",rp:"3 × 10",w:"~20–30 kg",b:["maq"],ini:"Manijas a la altura del pecho, espalda apoyada.",h:"Empujá hasta casi estirar sin trabar codos.",cl:"Pecho, hombro y tríceps."},
+   {n:"Remo sentado (máquina)",rp:"3 × 10",w:"~25–35 kg",b:["maq"],ini:"Espalda recta, pecho apoyado.",h:"Tirá al abdomen, codos atrás, apretá la espalda.",cl:"Trabaja la espalda, no solo el brazo."},
+   {n:"Plancha",rp:"3 × 30–45 s",w:"peso corporal",b:["libre"],ini:"Sobre antebrazos y puntas de los pies.",h:"Cuerpo en línea recta, abdomen y glúteos firmes.",cl:"No dejes caer ni subas la cadera."}],
+ B:[{n:"Press de hombros (máquina)",rp:"3 × 10",w:"~15–25 kg",b:["maq"],ini:"Sentado, manijas a la altura de los hombros.",h:"Empujá arriba hasta casi estirar.",cl:"No arquees la lumbar; abdomen firme."},
+   {n:"Jalón al pecho (polea)",rp:"3 × 10",w:"~25–35 kg",b:["maq"],ini:"Barra ancha, muslos trabados.",h:"Tirá a la parte alta del pecho, codos abajo y atrás.",cl:"Sin impulso del cuerpo."},
+   {n:"Curl femoral (máquina)",rp:"3 × 12",w:"~15–25 kg",b:["maq","knee"],ini:"Almohadilla detrás de los tobillos.",h:"Talones hacia la cola.",cl:"Importante para la rodilla."},
+   {n:"Face pull (polea)",rp:"3 × 15",w:"~10–20 kg",b:["maq"],ini:"Cuerda a la altura de la cara.",h:"Tirá separando las manos, codos altos.",cl:"Postura y hombro."},
+   {n:"Curl de bíceps (máquina/polea)",rp:"2 × 12",w:"~10–20 kg",b:["maq"],ini:"Codos pegados al cuerpo.",h:"Subí sin mover los codos.",cl:"Bajá controlado."},
+   {n:"Extensión de tríceps (polea)",rp:"2 × 12",w:"~15–25 kg",b:["maq"],ini:"Polea alta, codos al cuerpo.",h:"Estirá hacia abajo sin mover hombros.",cl:"Controlado."},
+   {n:"Pallof press (polea)",rp:"3 × 10/lado",w:"~5–15 kg",b:["maq"],ini:"De costado a la polea.",h:"Estirá los brazos resistiendo el giro. 2–3 s.",cl:"Core; cuida la lumbar."}],
+ C:[{n:"Press inclinado (máquina)",rp:"3 × 10",w:"~15–25 kg",b:["maq"],ini:"Banco inclinado ~30–45°.",h:"Empujá arriba y adelante.",cl:"Parte alta del pecho."},
+   {n:"Remo sentado (máquina)",rp:"3 × 12",w:"~25–35 kg",b:["maq"],ini:"Espalda recta.",h:"Tirá al abdomen, codos atrás.",cl:"Controlado."},
+   {n:"Elevaciones laterales",rp:"3 × 12",w:"~4–6 kg",b:["maq","libre"],ini:"Mancuernas a los costados.",h:"Subí a los lados hasta los hombros.",cl:"Liviano: control."},
+   {n:"Glúteo en máquina / puente",rp:"3 × 12",w:"suave",b:["maq","knee"],ini:"Máquina de glúteo o puente.",h:"Apretá glúteos hasta línea recta.",cl:"Suave: no fatigues piernas."},
+   {n:"Dead bug + plancha lateral",rp:"3 vueltas",w:"peso corporal",b:["libre"],ini:"Dead bug y plancha lateral.",h:"Sin despegar la lumbar; cadera arriba.",cl:"Core y estabilidad."}]
 };
+const MOMENTS=["Desayuno","Almuerzo","Merienda","Cena","Colaciones"];
+const EMO={energy:["😵","🥱","😐","🙂","⚡"],mood:["😞","😕","😐","🙂","😄"],sleep:["😩","😪","😐","🙂","😴"]};
+const EMOLBL={energy:"Energía",mood:"Ánimo",sleep:"Sueño"};
 
 /* ---------- STATE ---------- */
-let attendance={},extras={},metrics=[],loads={},viewY,viewM,curSession="A";
+let attendance={},extras={},wellbeing={},food={},metrics=[],loads={},config={},viewY,viewM,curSession="A";
 function ymd(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
 function todayStr(){return ymd(new Date());}
 function parse(s){const[y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d);}
 function weekdayMon(d){return (d.getDay()+6)%7;}
-function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2600);}
-function setConn(s,txt){document.getElementById("conn").className="conn "+s;document.getElementById("connTxt").textContent=txt;}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2500);}
+function setConn(s,t){document.getElementById("conn").className="conn "+s;document.getElementById("connTxt").textContent=t;}
 function showBanner(m){const b=document.getElementById("banner");b.textContent=m;b.style.display="block";}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function escA(s){return esc(s).replace(/'/g,"&#39;");}
+function achieved(k){return attendance[k]==="done"||(extras[k]&&(extras[k].gym||extras[k].football));}
 
-/* catálogo de ejercicios: rutina + todo lo ya registrado */
-function catalog(){
-  const set=new Set();
-  Object.values(SESSIONS).forEach(arr=>arr.forEach(e=>set.add(e.n)));
-  Object.values(loads).forEach(arr=>arr.forEach(it=>set.add(it.ex)));
-  return Array.from(set).sort((a,b)=>a.localeCompare(b,"es"));
-}
+function catalog(){const set=new Set();Object.values(SESSIONS).forEach(a=>a.forEach(e=>set.add(e.n)));Object.values(loads).forEach(a=>a.forEach(it=>set.add(it.ex)));return Array.from(set).sort((a,b)=>a.localeCompare(b,"es"));}
+function age(){const b=parse(PERFIL.nacimiento),t=new Date();let a=t.getFullYear()-b.getFullYear();if(t.getMonth()<b.getMonth()||(t.getMonth()===b.getMonth()&&t.getDate()<b.getDate()))a--;return a;}
+function latestWeight(){const p=metrics.filter(m=>m.weight!=null);return p.length?p[p.length-1].weight:73;}
+function calorieTarget(){const w=latestWeight(),h=PERFIL.alturaCm,a=age();const bmr=10*w+6.25*h-5*a+(PERFIL.sexo==="M"?5:-161);return Math.round((bmr*PERFIL.factorActividad-PERFIL.deficit)/10)*10;}
 
 /* ---------- INIT ---------- */
 async function init(){
   const now=new Date();viewY=now.getFullYear();viewM=now.getMonth();
   document.getElementById("mDate").value=todayStr();
   renderPlan();renderAll();
-  if(!CONFIG.API_URL){setConn("bad","Sin configurar");showBanner("⚙️ Falta pegar la URL del Apps Script en CONFIG.API_URL. Mientras tanto podés consultar el plan, pero no se guarda nada.");return;}
+  if(!CONFIG.API_URL){setConn("bad","Sin configurar");showBanner("⚙️ Falta pegar la URL del Apps Script en CONFIG.API_URL.");return;}
   setConn("","Conectando…");
   try{
-    const data=await apiGet();
-    if(data&&data.error==="token"){setConn("bad","Token incorrecto");showBanner("La palabra secreta (TOKEN) no coincide con la del Apps Script (SECRET).");return;}
-    attendance=data.attendance||{};extras=data.extras||{};metrics=data.metrics||[];loads=data.loads||{};
+    const d=await apiGet();
+    if(d&&d.error==="token"){setConn("bad","Token incorrecto");showBanner("La palabra secreta no coincide con el Apps Script.");return;}
+    attendance=d.attendance||{};extras=d.extras||{};wellbeing=d.wellbeing||{};food=d.food||{};metrics=d.metrics||[];loads=d.loads||{};config=d.config||{};
     setConn("ok","Sincronizado");renderAll();
-  }catch(err){setConn("bad","Sin conexión");showBanner("No me pude conectar al servidor. Revisá la URL del Apps Script y tu conexión.");}
+  }catch(e){setConn("bad","Sin conexión");showBanner("No me pude conectar. Revisá la URL y tu conexión.");}
 }
 function renderAll(){renderWeekbar();renderCalendar();renderStats();renderProgress();}
 
 /* ---------- WEEKBAR ---------- */
 function renderWeekbar(){
   const wb=document.getElementById("weekbar");wb.innerHTML="";
-  const now=new Date();const mon=new Date(now);mon.setDate(now.getDate()-weekdayMon(now));
+  const now=new Date(),mon=new Date(now);mon.setDate(now.getDate()-weekdayMon(now));
   const names=["L","M","M","J","V","S","D"];
-  for(let i=0;i<7;i++){const d=new Date(mon);d.setDate(mon.getDate()+i);const k=ymd(d);const sc=SCHED[d.getDay()];const st=attendance[k]||null;
-    const el=document.createElement("div");el.className="wb"+(st==="done"?" done":st==="miss"?" miss":"")+(k===todayStr()?" today":"");
+  for(let i=0;i<7;i++){const d=new Date(mon);d.setDate(mon.getDate()+i);const k=ymd(d);const sc=SCHED[d.getDay()];
+    const cls=achieved(k)?" done":(attendance[k]==="miss"?" miss":"");
+    const el=document.createElement("div");el.className="wb"+cls+(k===todayStr()?" today":"");
     el.innerHTML='<div class="d">'+names[i]+'</div><div class="m">'+sc.ic+'</div>';wb.appendChild(el);}
 }
 /* ---------- CALENDAR ---------- */
@@ -280,177 +340,219 @@ const MONTHS=["enero","febrero","marzo","abril","mayo","junio","julio","agosto",
 function renderCalendar(){
   document.getElementById("calTitle").textContent=MONTHS[viewM]+" "+viewY;
   const grid=document.getElementById("calGrid");grid.innerHTML="";
-  const first=new Date(viewY,viewM,1);const lead=weekdayMon(first);const days=new Date(viewY,viewM+1,0).getDate();
+  const first=new Date(viewY,viewM,1),lead=weekdayMon(first),days=new Date(viewY,viewM+1,0).getDate();
   for(let i=0;i<lead;i++){const e=document.createElement("div");e.className="cell empty";grid.appendChild(e);}
-  for(let dn=1;dn<=days;dn++){const d=new Date(viewY,viewM,dn);const k=ymd(d);const sc=SCHED[d.getDay()];const st=attendance[k]||null;
+  for(let dn=1;dn<=days;dn++){const d=new Date(viewY,viewM,dn);const k=ymd(d);const sc=SCHED[d.getDay()];
+    const ach=achieved(k);const miss=attendance[k]==="miss"&&!ach;
     const ext=extras[k]||{};const hasExtra=ext.gym||ext.football;
-    const isFut=k>todayStr();const isT=k===todayStr();
+    const isFut=k>todayStr(),isT=k===todayStr();
     const c=document.createElement("div");
-    c.className="cell "+sc.type+(st==="done"?" done":st==="miss"?" miss":"")+(isT?" today":"")+(isFut?" fut":"");
-    const dot=st==="done"?'<span class="st done"></span>':st==="miss"?'<span class="st miss"></span>':"";
+    c.className="cell "+sc.type+(ach?" done":miss?" miss":"")+(isT?" today":"")+(isFut?" fut":"");
+    const dot=ach?'<span class="st done"></span>':miss?'<span class="st miss"></span>':"";
     const plus=hasExtra?'<span class="extra">＋</span>':"";
-    c.innerHTML=plus+'<span class="num">'+dn+'</span><span class="ic">'+(sc.type==="rest"?(hasExtra?"":""):sc.ic)+'</span>'+dot;
-    c.onclick=()=>openDay(k);
-    grid.appendChild(c);}
+    c.innerHTML=plus+'<span class="num">'+dn+'</span><span class="ic">'+(sc.type==="rest"?"":sc.ic)+'</span>'+dot;
+    c.onclick=()=>openDay(k);grid.appendChild(c);}
 }
 document.getElementById("prevM").onclick=()=>{viewM--;if(viewM<0){viewM=11;viewY--;}renderCalendar();};
 document.getElementById("nextM").onclick=()=>{viewM++;if(viewM>11){viewM=0;viewY++;}renderCalendar();};
 /* ---------- STATS ---------- */
 function renderStats(){
-  const now=new Date();const mon=new Date(now);mon.setDate(now.getDate()-weekdayMon(now));
-  let wd=0;for(let i=0;i<7;i++){const d=new Date(mon);d.setDate(mon.getDate()+i);const k=ymd(d);if(SCHED[d.getDay()].type!=="rest"&&attendance[k]==="done")wd++;}
+  const now=new Date(),mon=new Date(now);mon.setDate(now.getDate()-weekdayMon(now));
+  let wd=0;for(let i=0;i<6;i++){const d=new Date(mon);d.setDate(mon.getDate()+i);if(achieved(ymd(d)))wd++;}
   document.getElementById("stWeek").textContent=wd+"/6";
-  let md=0;Object.keys(attendance).forEach(k=>{if(k.startsWith(viewY+"-"+String(viewM+1).padStart(2,"0"))&&attendance[k]==="done")md++;});
+  let md=0;Object.keys(attendance).forEach(k=>{if(k.startsWith(viewY+"-"+String(viewM+1).padStart(2,"0"))&&achieved(k))md++;});
+  Object.keys(extras).forEach(k=>{if(k.startsWith(viewY+"-"+String(viewM+1).padStart(2,"0"))&&!achieved(k)){/*noop*/}});
   document.getElementById("stMonth").textContent=md;
   let streak=0,d=new Date();
-  for(let i=0;i<60;i++){const k=ymd(d);const sc=SCHED[d.getDay()];
+  for(let i=0;i<90;i++){const k=ymd(d);const sc=SCHED[d.getDay()];
+    if(achieved(k)){streak++;d.setDate(d.getDate()-1);continue;}
     if(sc.type==="rest"){d.setDate(d.getDate()-1);continue;}
-    if(attendance[k]==="done"){streak++;d.setDate(d.getDate()-1);}
-    else{if(k===todayStr()){d.setDate(d.getDate()-1);continue;}break;}}
+    if(k===todayStr()){d.setDate(d.getDate()-1);continue;}
+    break;}
   document.getElementById("stStreak").textContent=streak;
 }
 
 /* ---------- DAY MODAL ---------- */
-let mKey=null,mStatus=null,mExtraGym=false,mExtraFoot=false,logRows=[],mPlannedSid=null;
+let mKey,mStatus,mExtraGym,mExtraFoot,logRows,mPlannedSid;
+let mEnergy,mMood,mSleep,mHours,mDream,mFood,mTotalManual;
+let openSec={act:true,well:false,food:false};
 function openDay(key){
   mKey=key;const d=parse(key);const sc=SCHED[d.getDay()];
   mStatus=attendance[key]||null;
   const ex=extras[key]||{};mExtraGym=!!ex.gym;mExtraFoot=!!ex.football;
   mPlannedSid=sc.type==="gym"?sc.id:null;
   logRows=(loads[key]||[]).map(r=>({ex:r.ex,series:r.series!=null?r.series:"",reps:r.reps!=null?r.reps:"",kg:r.kg!=null?r.kg:""}));
-  const dn=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"][d.getDay()];
-
-  let html='<h3>'+sc.ic+' '+(sc.type==="rest"?"Día de descanso":sc.label)+'</h3>';
-  html+='<div class="when">'+dn+' '+d.getDate()+' de '+MONTHS[d.getMonth()]+(sc.type!=="rest"?' · '+sc.sub:'')+'</div>';
-
-  if(sc.type!=="rest"){
-    html+='<div class="seclabel">¿Cumpliste lo planificado?</div>';
-    html+='<div class="mark"><button id="bDone" class="'+(mStatus==="done"?"gon":"")+'">✓ Cumplí</button><button id="bMiss" class="'+(mStatus==="miss"?"ron":"")+'">✗ No fui</button><button id="bClear" class="ghost">Limpiar</button></div>';
-  }
-
-  html+='<div class="seclabel">'+(sc.type==="rest"?"¿Qué hiciste hoy?":"¿Algo más? (actividad extra)")+'</div><div class="acts">';
-  if(sc.type!=="gym") html+='<button class="actbtn" id="tGym">🏋️ '+(sc.type==="rest"?"Fui al gimnasio":"También fui al gym")+'</button>';
-  if(sc.type!=="foot") html+='<button class="actbtn" id="tFoot">⚽ '+(sc.type==="rest"?"Jugué al fútbol":"También jugué")+'</button>';
-  html+='</div>';
-
-  html+='<div id="loggerBox" class="loggerbox"></div>';
-  html+='<button class="act" id="saveDay" style="margin-top:18px">Guardar</button>';
-  html+='<button class="act ghost close" id="closeSheet">Cerrar</button>';
-  document.getElementById("sheet").innerHTML=html;
+  const wb=wellbeing[key]||{};mEnergy=wb.energy||null;mMood=wb.mood||null;mSleep=wb.sleep||null;mHours=wb.hours!=null?wb.hours:"";mDream=wb.dream||"";
+  mFood={};MOMENTS.forEach(m=>mFood[m]=[]);const fd=food[key]||{items:[],totalManual:null};
+  fd.items.forEach(it=>{const mm=MOMENTS.includes(it.moment)?it.moment:"Colaciones";mFood[mm].push({desc:it.desc,kcal:it.kcal});});
+  mTotalManual=fd.totalManual!=null?fd.totalManual:"";
+  openSec={act:true,well:false,food:false};
+  renderModal();
   document.getElementById("ov").classList.add("show");
-
-  if(sc.type!=="rest"){
-    document.getElementById("bDone").onclick=()=>{mStatus=mStatus==="done"?null:"done";refreshModal();};
-    document.getElementById("bMiss").onclick=()=>{mStatus=mStatus==="miss"?null:"miss";refreshModal();};
-    document.getElementById("bClear").onclick=()=>{mStatus=null;refreshModal();};
-  }
-  const tg=document.getElementById("tGym");if(tg)tg.onclick=()=>{mExtraGym=!mExtraGym;refreshModal();};
-  const tf=document.getElementById("tFoot");if(tf)tf.onclick=()=>{mExtraFoot=!mExtraFoot;refreshModal();};
-  document.getElementById("saveDay").onclick=saveDay;
-  document.getElementById("closeSheet").onclick=closeSheet;
-  refreshModal();
 }
 function gymActive(){const sc=SCHED[parse(mKey).getDay()];return (sc.type==="gym"&&mStatus==="done")||mExtraGym;}
-function refreshModal(){
-  // visual toggles
-  const sc=SCHED[parse(mKey).getDay()];
-  if(sc.type!=="rest"){
-    const bd=document.getElementById("bDone"),bm=document.getElementById("bMiss");
-    if(bd)bd.className=mStatus==="done"?"gon":"";
-    if(bm)bm.className=mStatus==="miss"?"ron":"";
-  }
-  const tg=document.getElementById("tGym");if(tg)tg.className="actbtn"+(mExtraGym?" on":"");
-  const tf=document.getElementById("tFoot");if(tf)tf.className="actbtn"+(mExtraFoot?" on":"");
-  // logger
-  const box=document.getElementById("loggerBox");
-  if(gymActive()){
-    if(logRows.length===0 && mPlannedSid && mStatus==="done"){ logRows=SESSIONS[mPlannedSid].map(e=>({ex:e.n,series:"",reps:"",kg:""})); }
-    box.style.display="block";renderLogger();
-  } else { box.innerHTML=""; }
+function foodSum(){let s=0;MOMENTS.forEach(m=>mFood[m].forEach(it=>{if(it.kcal!=null)s+=Number(it.kcal);}));return s;}
+
+function renderModal(){
+  const d=parse(mKey),sc=SCHED[d.getDay()];
+  const dn=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"][d.getDay()];
+  let h='<div class="grab"></div>';
+  h+='<h3>'+sc.ic+' '+(sc.type==="rest"?"Día de descanso":sc.label)+'</h3>';
+  h+='<div class="when">'+dn+' '+d.getDate()+' de '+MONTHS[d.getMonth()]+(sc.type!=="rest"?' · '+sc.sub:'')+'</div>';
+
+  /* ACTIVIDAD */
+  h+=acc("act","🏃 Actividad",actSummary(),renderActBody(sc));
+  /* BIENESTAR */
+  h+=acc("well","🌙 Bienestar",wellSummary(),renderWellBody());
+  /* ALIMENTACIÓN */
+  h+=acc("food","🍽️ Alimentación",foodSummary(),renderFoodBody());
+
+  h+='<button class="act" id="saveDay" style="margin-top:6px">Guardar día</button>';
+  h+='<button class="act ghost close" id="closeSheet">Cerrar</button>';
+  document.getElementById("sheet").innerHTML=h;
+  attachModal(sc);
 }
-function renderLogger(){
-  const box=document.getElementById("loggerBox");
-  let html='<div class="seclabel">Ejercicios realizados</div>';
-  logRows.forEach((r,i)=>{
-    html+='<div class="logrow"><div class="top"><span class="lname">'+escapeHtml(r.ex)+'</span><button class="rmv" data-i="'+i+'">✕</button></div>'+
-      '<div class="fields">'+
-      '<div class="f"><label>Series</label><input type="number" id="s'+i+'" inputmode="numeric" value="'+(r.series!==""?r.series:"")+'"></div>'+
-      '<div class="f"><label>Reps</label><input type="number" id="r'+i+'" inputmode="numeric" value="'+(r.reps!==""?r.reps:"")+'"></div>'+
-      '<div class="f"><label>Kg</label><input type="number" id="k'+i+'" inputmode="decimal" step="0.5" value="'+(r.kg!==""?r.kg:"")+'"></div>'+
-      '</div></div>';
+function acc(id,title,summary,body){
+  return '<div class="acc'+(openSec[id]?" open":"")+'" data-acc="'+id+'"><div class="h" data-toggle="'+id+'"><span>'+title+'</span><span class="summary">'+summary+' <span class="chev">▸</span></span></div><div class="b">'+body+'</div></div>';
+}
+function actSummary(){const a=[];if(gymActive())a.push("Gym");if((SCHED[parse(mKey).getDay()].type==="foot"&&mStatus==="done")||mExtraFoot)a.push("Fútbol");if(mStatus==="miss"&&!achievedLocal())a.push("No fui");return a.length?a.join(" · "):"—";}
+function achievedLocal(){return mStatus==="done"||mExtraGym||mExtraFoot;}
+function wellSummary(){const a=[];if(mEnergy)a.push(EMO.energy[mEnergy-1]);if(mMood)a.push(EMO.mood[mMood-1]);if(mSleep)a.push(EMO.sleep[mSleep-1]);if(mHours!=="")a.push(mHours+"h");return a.length?a.join(" "):"—";}
+function foodSummary(){const s=foodSum();const t=mTotalManual!==""?Number(mTotalManual):s;return t>0?(t+" / "+calorieTarget()+" kcal"):"—";}
+
+function renderActBody(sc){
+  let h="";
+  if(sc.type!=="rest"){
+    h+='<div class="seclabel">¿Cumpliste lo planificado?</div><div class="mark"><button id="bDone" class="'+(mStatus==="done"?"gon":"")+'">✓ Cumplí</button><button id="bMiss" class="'+(mStatus==="miss"?"ron":"")+'">✗ No fui</button><button id="bClear" class="ghost">Limpiar</button></div>';
+  }
+  h+='<div class="seclabel">'+(sc.type==="rest"?"¿Qué hiciste?":"¿Algo más?")+'</div><div class="acts">';
+  if(sc.type!=="gym")h+='<button class="actbtn" id="tGym">🏋️ '+(sc.type==="rest"?"Gimnasio":"También gym")+'</button>';
+  if(sc.type!=="foot")h+='<button class="actbtn" id="tFoot">⚽ '+(sc.type==="rest"?"Fútbol":"También jugué")+'</button>';
+  h+='</div>';
+  if(gymActive()){
+    if(logRows.length===0&&mPlannedSid&&mStatus==="done")logRows=SESSIONS[mPlannedSid].map(e=>({ex:e.n,series:"",reps:"",kg:""}));
+    h+='<div id="loggerBox">'+renderLoggerHTML()+'</div>';
+  }
+  return h;
+}
+function renderLoggerHTML(){
+  let h='<div class="seclabel">Ejercicios realizados</div>';
+  logRows.forEach((r,i)=>{h+='<div class="logrow"><div class="top"><span class="lname">'+esc(r.ex)+'</span><button class="rmv" data-rm="'+i+'">✕</button></div><div class="fields"><div class="f"><label>Series</label><input type="number" inputmode="numeric" id="s'+i+'" value="'+(r.series!==""?r.series:"")+'"></div><div class="f"><label>Reps</label><input type="number" inputmode="numeric" id="r'+i+'" value="'+(r.reps!==""?r.reps:"")+'"></div><div class="f"><label>Kg</label><input type="number" inputmode="decimal" step="0.5" id="k'+i+'" value="'+(r.kg!==""?r.kg:"")+'"></div></div></div>';});
+  h+='<div class="searchwrap"><input type="text" id="exSearch" placeholder="Buscar o agregar ejercicio…"><div class="suggest" id="exSuggest"></div></div>';
+  return h;
+}
+function renderWellBody(){
+  let h="";
+  ["energy","mood","sleep"].forEach(key=>{
+    const cur=key==="energy"?mEnergy:key==="mood"?mMood:mSleep;
+    h+='<div class="seclabel">'+EMOLBL[key]+'</div><div class="emoji" data-emo="'+key+'">';
+    EMO[key].forEach((e,i)=>{h+='<button class="'+(cur===i+1?"on":"")+'" data-val="'+(i+1)+'">'+e+'</button>';});
+    h+='</div>';
   });
-  html+='<div class="searchwrap"><input type="text" id="exSearch" placeholder="Buscar o agregar ejercicio…"><div class="suggest" id="exSuggest"></div></div>';
-  box.innerHTML=html;
-  box.querySelectorAll(".rmv").forEach(b=>b.onclick=()=>{syncInputs();logRows.splice(parseInt(b.dataset.i),1);renderLogger();});
-  const inp=document.getElementById("exSearch");
-  inp.oninput=()=>renderSuggest(inp.value);
-  inp.onfocus=()=>renderSuggest(inp.value);
+  h+='<div class="seclabel">Horas dormidas</div><input type="number" step="0.5" inputmode="decimal" id="whHours" placeholder="7.5" value="'+(mHours!==""?mHours:"")+'">';
+  h+='<div class="seclabel">¿Qué soñé?</div><input type="text" id="whDream" placeholder="Opcional…" value="'+escA(mDream)+'">';
+  return h;
+}
+function renderFoodBody(){
+  let h="";
+  MOMENTS.forEach((m,mi)=>{
+    let sub=mFood[m].reduce((a,it)=>a+(it.kcal!=null?Number(it.kcal):0),0);
+    h+='<div class="meal"><div class="mh"><span>'+m+'</span><span class="mk">'+(sub>0?sub+" kcal":"")+'</span></div>';
+    mFood[m].forEach((it,ii)=>{h+='<div class="fitem"><span>'+esc(it.desc)+'</span><span style="display:flex;gap:8px;align-items:center"><span class="fk">'+(it.kcal!=null?it.kcal+" kcal":"—")+'</span><button class="rmv" data-frm="'+mi+'_'+ii+'">✕</button></span></div>';});
+    h+='<div class="faddrow"><input type="text" class="d" id="fad'+mi+'" placeholder="Alimento / bebida"><input type="number" class="k" id="fak'+mi+'" inputmode="numeric" placeholder="kcal"><button data-fadd="'+mi+'">＋</button></div></div>';
+  });
+  const sum=foodSum(),target=calorieTarget();
+  const total=mTotalManual!==""?Number(mTotalManual):sum;
+  const pct=Math.min(100,Math.round(total/target*100))||0;
+  const diff=total-target;
+  h+='<div class="kcalbox"><div class="seclabel" style="margin-top:0">Balance del día</div>';
+  h+='<div class="kcalbar"><span style="width:'+pct+'%;background:'+(diff>0?"var(--accent)":"var(--green)")+'"></span></div>';
+  h+='<div class="kcalrow"><span>Consumido: '+total+' kcal</span><span>Objetivo: '+target+'</span></div>';
+  if(total>0){h+='<div class="kcalverdict '+(diff<=0?"def":"sur")+'">'+(diff<=0?("Déficit de "+Math.abs(diff)+" kcal ✓"):("Superávit de "+diff+" kcal"))+'</div>';}
+  h+='<div class="seclabel">Total manual (opcional, pisa la suma)</div><input type="number" inputmode="numeric" id="fdTotal" placeholder="dejar vacío = usa la suma" value="'+(mTotalManual!==""?mTotalManual:"")+'">';
+  h+='</div>';
+  return h;
+}
+
+function attachModal(sc){
+  document.querySelectorAll("[data-toggle]").forEach(el=>el.onclick=()=>{syncModal();const id=el.dataset.toggle;openSec[id]=!openSec[id];renderModal();});
+  const bd=document.getElementById("bDone");if(bd)bd.onclick=()=>{syncModal();mStatus=mStatus==="done"?null:"done";renderModal();};
+  const bm=document.getElementById("bMiss");if(bm)bm.onclick=()=>{syncModal();mStatus=mStatus==="miss"?null:"miss";renderModal();};
+  const bc=document.getElementById("bClear");if(bc)bc.onclick=()=>{syncModal();mStatus=null;renderModal();};
+  const tg=document.getElementById("tGym");if(tg)tg.onclick=()=>{syncModal();mExtraGym=!mExtraGym;renderModal();};
+  const tf=document.getElementById("tFoot");if(tf)tf.onclick=()=>{syncModal();mExtraFoot=!mExtraFoot;renderModal();};
+  document.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{syncModal();logRows.splice(parseInt(b.dataset.rm),1);renderModal();});
+  const inp=document.getElementById("exSearch");if(inp){inp.oninput=()=>renderSuggest(inp.value);inp.onfocus=()=>renderSuggest(inp.value);}
+  document.querySelectorAll("[data-emo]").forEach(box=>{const key=box.dataset.emo;box.querySelectorAll("button").forEach(b=>b.onclick=()=>{syncModal();const v=parseInt(b.dataset.val);if(key==="energy")mEnergy=mEnergy===v?null:v;else if(key==="mood")mMood=mMood===v?null:v;else mSleep=mSleep===v?null:v;renderModal();});});
+  document.querySelectorAll("[data-fadd]").forEach(b=>b.onclick=()=>{const mi=parseInt(b.dataset.fadd);addFood(mi);});
+  document.querySelectorAll("[data-frm]").forEach(b=>b.onclick=()=>{syncModal();const[mi,ii]=b.dataset.frm.split("_").map(Number);mFood[MOMENTS[mi]].splice(ii,1);renderModal();});
+  document.getElementById("saveDay").onclick=saveDay;
+  document.getElementById("closeSheet").onclick=closeSheet;
+}
+function syncModal(){
+  logRows.forEach((r,i)=>{const s=document.getElementById("s"+i),rp=document.getElementById("r"+i),k=document.getElementById("k"+i);if(s)r.series=s.value;if(rp)r.reps=rp.value;if(k)r.kg=k.value;});
+  const wh=document.getElementById("whHours");if(wh)mHours=wh.value;
+  const wd=document.getElementById("whDream");if(wd)mDream=wd.value;
+  const ft=document.getElementById("fdTotal");if(ft)mTotalManual=ft.value;
+}
+function addFood(mi){
+  const di=document.getElementById("fad"+mi),ki=document.getElementById("fak"+mi);
+  const desc=(di.value||"").trim();if(!desc){di.focus();return;}
+  const kcal=ki.value!==""?parseFloat(ki.value):null;
+  syncModal();mFood[MOMENTS[mi]].push({desc:desc,kcal:kcal});renderModal();
 }
 function renderSuggest(qRaw){
-  const q=(qRaw||"").trim();const box=document.getElementById("exSuggest");
+  const q=(qRaw||"").trim(),box=document.getElementById("exSuggest");if(!box)return;
   const used=new Set(logRows.map(r=>r.ex.toLowerCase()));
   let list=catalog().filter(n=>!used.has(n.toLowerCase()));
-  if(q) list=list.filter(n=>n.toLowerCase().includes(q.toLowerCase()));
+  if(q)list=list.filter(n=>n.toLowerCase().includes(q.toLowerCase()));
   list=list.slice(0,6);
-  let html=list.map(n=>'<div data-add="'+escapeAttr(n)+'">'+escapeHtml(n)+'</div>').join("");
-  if(q && !catalog().some(n=>n.toLowerCase()===q.toLowerCase())){
-    html+='<div class="add" data-add="'+escapeAttr(q)+'">➕ Agregar «'+escapeHtml(q)+'»</div>';
-  }
-  box.innerHTML=html;box.className="suggest"+(html?" show":"");
-  box.querySelectorAll("div").forEach(d=>d.onclick=()=>addExercise(d.getAttribute("data-add")));
+  let h=list.map(n=>'<div data-add="'+escA(n)+'">'+esc(n)+'</div>').join("");
+  if(q&&!catalog().some(n=>n.toLowerCase()===q.toLowerCase()))h+='<div class="add" data-add="'+escA(q)+'">➕ Agregar «'+esc(q)+'»</div>';
+  box.innerHTML=h;box.className="suggest"+(h?" show":"");
+  box.querySelectorAll("div").forEach(dv=>dv.onclick=()=>{syncModal();const nm=dv.getAttribute("data-add");if(nm&&!logRows.some(r=>r.ex.toLowerCase()===nm.toLowerCase()))logRows.push({ex:nm,series:"",reps:"",kg:""});renderModal();});
 }
-function addExercise(name){
-  syncInputs();
-  if(!name)return;
-  if(!logRows.some(r=>r.ex.toLowerCase()===name.toLowerCase())) logRows.push({ex:name,series:"",reps:"",kg:""});
-  renderLogger();
-}
-function syncInputs(){
-  logRows.forEach((r,i)=>{
-    const s=document.getElementById("s"+i),rp=document.getElementById("r"+i),k=document.getElementById("k"+i);
-    if(s)r.series=s.value;if(rp)r.reps=rp.value;if(k)r.kg=k.value;
-  });
-}
-function escapeHtml(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
-function escapeAttr(s){return escapeHtml(s).replace(/'/g,"&#39;");}
 function closeSheet(){document.getElementById("ov").classList.remove("show");}
 document.getElementById("ov").onclick=e=>{if(e.target.id==="ov")closeSheet();};
 
 function saveDay(){
-  syncInputs();
-  const sc=SCHED[parse(mKey).getDay()];
-  // attendance
+  syncModal();
   if(mStatus==null)delete attendance[mKey];else attendance[mKey]=mStatus;
   apiPost({action:"attendance",date:mKey,status:mStatus});
-  // extras
   if(mExtraGym||mExtraFoot)extras[mKey]={gym:mExtraGym,football:mExtraFoot};else delete extras[mKey];
   apiPost({action:"extras",date:mKey,gym:mExtraGym?"1":"0",football:mExtraFoot?"1":"0"});
   // loads
-  if(gymActive()){
-    const clean=logRows.filter(r=>r.ex&&(r.series!==""||r.reps!==""||r.kg!=="")).map(r=>({ex:r.ex,series:r.series!==""?parseFloat(r.series):null,reps:r.reps!==""?parseInt(r.reps):null,kg:r.kg!==""?parseFloat(r.kg):null}));
-    if(clean.length){loads[mKey]=clean;}else delete loads[mKey];
+  if(gymActive()){const clean=logRows.filter(r=>r.ex&&(r.series!==""||r.reps!==""||r.kg!=="")).map(r=>({ex:r.ex,series:r.series!==""?parseFloat(r.series):null,reps:r.reps!==""?parseInt(r.reps):null,kg:r.kg!==""?parseFloat(r.kg):null}));
+    if(clean.length)loads[mKey]=clean;else delete loads[mKey];
     apiPost({action:"loads",date:mKey,session:mPlannedSid||"",items:JSON.stringify(clean)});
-  } else {
-    if(loads[mKey]){delete loads[mKey];apiPost({action:"loads",date:mKey,session:"",items:"[]"});}
-  }
-  renderAll();closeSheet();toast("Guardado ✓");
+  }else if(loads[mKey]){delete loads[mKey];apiPost({action:"loads",date:mKey,session:"",items:"[]"});}
+  // wellbeing
+  const wbEmpty=!mEnergy&&!mMood&&!mSleep&&mHours===""&&!mDream;
+  if(wbEmpty)delete wellbeing[mKey];else wellbeing[mKey]={energy:mEnergy,mood:mMood,sleep:mSleep,hours:mHours!==""?parseFloat(mHours):null,dream:mDream};
+  apiPost({action:"wellbeing",date:mKey,energy:mEnergy||"",mood:mMood||"",sleep:mSleep||"",hours:mHours!==""?mHours:"",dream:mDream||""});
+  // food
+  const items=[];MOMENTS.forEach(m=>mFood[m].forEach(it=>items.push({moment:m,desc:it.desc,kcal:it.kcal})));
+  const tm=mTotalManual!==""?parseFloat(mTotalManual):null;
+  if(items.length||tm!=null)food[mKey]={items:items.map(i=>({moment:i.moment,desc:i.desc,kcal:i.kcal})),totalManual:tm};else delete food[mKey];
+  apiPost({action:"food",date:mKey,items:JSON.stringify(items),totalManual:tm!=null?tm:""});
+  renderAll();closeSheet();toast("Día guardado ✓");
 }
 
 /* ---------- PLAN ---------- */
 function renderPlan(){
-  const ex=SESSIONS[curSession];const card=document.getElementById("planCard");
+  const ex=SESSIONS[curSession],card=document.getElementById("planCard");
   const t={A:"Full body · Lunes",B:"Superior + isquios · Miércoles",C:"Superior + core · Viernes"};
-  let html='<span class="tag">Sesión '+curSession+'</span><h2 style="margin:2px 0 12px">'+t[curSession]+'</h2><ol class="ex">';
+  let h='<span class="tag">Sesión '+curSession+'</span><h2 style="margin:3px 0 12px">'+t[curSession]+'</h2><ol class="ex">';
   ex.forEach(e=>{const badges=e.b.map(b=>'<span class="badge '+b+'">'+(b==="maq"?"máquina":b==="libre"?"peso corporal":"cuida rodilla")+'</span>').join("");
-    html+='<li><div class="row" onclick="this.parentElement.classList.toggle(\'open\')"><span class="nm">'+e.n+'</span><span class="rp">'+e.rp+' · <b>'+e.w+'</b></span></div><div class="ex-detail"><dl><dt>Inicio</dt><dd>'+e.ini+'</dd><dt>Hacer</dt><dd>'+e.h+'</dd><dt>Clave</dt><dd>'+e.cl+'</dd><dt>Peso</dt><dd>'+e.w+'</dd></dl>'+badges+'</div></li>';});
-  html+='</ol>';card.innerHTML=html;
+    h+='<li><div class="row" onclick="this.parentElement.classList.toggle(\'open\')"><span class="nm">'+e.n+'</span><span class="rp">'+e.rp+' · <b>'+e.w+'</b></span></div><div class="ex-detail"><dl><dt>Inicio</dt><dd>'+e.ini+'</dd><dt>Hacer</dt><dd>'+e.h+'</dd><dt>Clave</dt><dd>'+e.cl+'</dd></dl>'+badges+'</div></li>';});
+  h+='</ol>';card.innerHTML=h;
 }
 document.querySelectorAll("#segPlan button").forEach(b=>{b.onclick=()=>{document.querySelectorAll("#segPlan button").forEach(x=>x.classList.remove("on"));b.classList.add("on");curSession=b.dataset.s;renderPlan();};});
 
 /* ---------- PROGRESS ---------- */
 document.getElementById("saveMetric").onclick=()=>{
   const date=document.getElementById("mDate").value||todayStr();
-  const w=document.getElementById("mW").value;const waist=document.getElementById("mWaist").value;
+  const w=document.getElementById("mW").value,waist=document.getElementById("mWaist").value;
   if(w===""&&waist==="")return;
   const ex=metrics.find(m=>m.date===date);
   if(ex){if(w!=="")ex.weight=parseFloat(w);if(waist!=="")ex.waist=parseFloat(waist);}
@@ -460,24 +562,40 @@ document.getElementById("saveMetric").onclick=()=>{
   document.getElementById("mW").value="";document.getElementById("mWaist").value="";
   renderProgress();toast("Registro guardado ✓");
 };
+function sparkline(points,color,fixedMin,fixedMax){
+  if(points.length===0)return '<svg viewBox="0 0 300 42"><text x="150" y="24" text-anchor="middle" fill="#9aa39c" font-family="Sometype Mono" font-size="9">sin datos</text></svg>';
+  const vals=points.map(p=>p.val);let mn=fixedMin!=null?fixedMin:Math.min(...vals),mx=fixedMax!=null?fixedMax:Math.max(...vals);if(mx===mn)mx=mn+1;
+  const W=300,H=42,pad=6;const x=i=>points.length===1?W/2:pad+(W-2*pad)*i/(points.length-1);const y=v=>H-pad-(H-2*pad)*(v-mn)/(mx-mn);
+  const path=points.map((p,i)=>(i?"L":"M")+x(i).toFixed(1)+" "+y(p.val).toFixed(1)).join(" ");
+  const last=points[points.length-1];
+  return '<svg viewBox="0 0 300 42" preserveAspectRatio="none"><path d="'+path+'" fill="none" stroke="'+color+'" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="'+x(points.length-1).toFixed(1)+'" cy="'+y(last.val).toFixed(1)+'" r="3" fill="'+color+'"/></svg>';
+}
 function renderProgress(){
+  document.getElementById("kcalInfo").textContent="objetivo ~"+calorieTarget()+" kcal/día";
   const pts=metrics.filter(m=>m.weight!=null);const svg=document.getElementById("chart");
-  if(pts.length===0){svg.innerHTML='<text x="160" y="80" text-anchor="middle" fill="#3d5046" font-family="Sometype Mono" font-size="11">Aún sin registros</text>';}
+  if(pts.length===0)svg.innerHTML='<text x="160" y="75" text-anchor="middle" fill="#69736d" font-family="Sometype Mono" font-size="11">Aún sin registros</text>';
   else{const ws=pts.map(p=>p.weight);let mn=Math.min(...ws,70),mx=Math.max(...ws,73);if(mx-mn<2){mx+=1;mn-=1;}
-    const W=320,H=160,pad=24;const x=i=>pts.length===1?W/2:pad+(W-2*pad)*i/(pts.length-1);const y=v=>H-pad-(H-2*pad)*(v-mn)/(mx-mn);
+    const W=320,H=150,pad=22;const x=i=>pts.length===1?W/2:pad+(W-2*pad)*i/(pts.length-1);const y=v=>H-pad-(H-2*pad)*(v-mn)/(mx-mn);
     const gy=y(70);const path=pts.map((p,i)=>(i?"L":"M")+x(i).toFixed(1)+" "+y(p.weight).toFixed(1)).join(" ");
     const dots=pts.map((p,i)=>'<circle cx="'+x(i).toFixed(1)+'" cy="'+y(p.weight).toFixed(1)+'" r="3.5" fill="#e2643a"/>').join("");
-    svg.innerHTML='<line x1="0" y1="'+gy.toFixed(1)+'" x2="320" y2="'+gy.toFixed(1)+'" stroke="#2f8f5b" stroke-dasharray="4 4" stroke-width="1"/><text x="316" y="'+(gy-4).toFixed(1)+'" text-anchor="end" fill="#2f8f5b" font-family="Sometype Mono" font-size="9">meta 70</text><path d="'+path+'" fill="none" stroke="#e2643a" stroke-width="2.5" stroke-linejoin="round"/>'+dots+'<text x="2" y="12" fill="#3d5046" font-family="Sometype Mono" font-size="9">'+mx.toFixed(0)+' kg</text><text x="2" y="156" fill="#3d5046" font-family="Sometype Mono" font-size="9">'+mn.toFixed(0)+' kg</text>';}
+    svg.innerHTML='<line x1="0" y1="'+gy.toFixed(1)+'" x2="320" y2="'+gy.toFixed(1)+'" stroke="#2f8f5b" stroke-dasharray="4 4" stroke-width="1"/><text x="316" y="'+(gy-4).toFixed(1)+'" text-anchor="end" fill="#2f8f5b" font-family="Sometype Mono" font-size="9">meta 70</text><path d="'+path+'" fill="none" stroke="#e2643a" stroke-width="2.5" stroke-linejoin="round"/>'+dots+'<text x="2" y="11" fill="#69736d" font-family="Sometype Mono" font-size="9">'+mx.toFixed(0)+'</text><text x="2" y="146" fill="#69736d" font-family="Sometype Mono" font-size="9">'+mn.toFixed(0)+'</text>';}
   const mt=document.getElementById("metricTable");
   if(metrics.length===0)mt.innerHTML="";
-  else{const rows=metrics.slice(-6).reverse().map(m=>'<tr><td>'+m.date+'</td><td>'+(m.weight!=null?m.weight+" kg":"—")+'</td><td>'+(m.waist!=null?m.waist+" cm":"—")+'</td></tr>').join("");
-    mt.innerHTML='<table><tr><th>Fecha</th><th>Peso</th><th>Cintura</th></tr>'+rows+'</table>';}
+  else{const rows=metrics.slice(-6).reverse().map(m=>'<tr><td>'+m.date+'</td><td>'+(m.weight!=null?m.weight+" kg":"—")+'</td><td>'+(m.waist!=null?m.waist+" cm":"—")+'</td></tr>').join("");mt.innerHTML='<table><tr><th>Fecha</th><th>Peso</th><th>Cintura</th></tr>'+rows+'</table>';}
+  // wellbeing cards
+  const dates=Object.keys(wellbeing).sort();
+  function series(field){return dates.map(d=>({date:d,val:wellbeing[d][field]})).filter(p=>p.val!=null);}
+  const wc=document.getElementById("wellCards");
+  const defs=[["energy","Energía",EMO.energy,1,5],["mood","Ánimo",EMO.mood,1,5],["sleep","Sueño",EMO.sleep,1,5],["hours","Horas dormidas",null,null,null]];
+  wc.innerHTML=defs.map(d=>{const s=series(d[0]);const last=s.length?s[s.length-1].val:null;
+    let val=last==null?"—":(d[2]?d[2][last-1]:last+"h");
+    return '<div class="wcard"><div class="wl">'+d[1]+'</div><div class="wv">'+val+'</div>'+sparkline(s,"#1d4b39",d[3],d[4])+'</div>';}).join("");
+  // loads
   const lh=document.getElementById("loadHistory");const latest={};
   Object.keys(loads).sort().forEach(date=>{(loads[date]||[]).forEach(it=>{latest[it.ex]={date:date,series:it.series,reps:it.reps,kg:it.kg};});});
   const keys=Object.keys(latest).sort((a,b)=>a.localeCompare(b,"es"));
-  if(keys.length===0)lh.innerHTML='<p class="muted" style="font-size:.85rem;margin-top:8px">Todavía sin cargas registradas.</p>';
-  else{const rows=keys.map(ex=>'<tr><td>'+escapeHtml(ex)+'</td><td>'+(latest[ex].series!=null?latest[ex].series:"—")+'</td><td>'+(latest[ex].reps!=null?latest[ex].reps:"—")+'</td><td>'+(latest[ex].kg!=null?latest[ex].kg+" kg":"—")+'</td><td>'+latest[ex].date.slice(5)+'</td></tr>').join("");
-    lh.innerHTML='<table><tr><th>Ejercicio</th><th>Ser.</th><th>Reps</th><th>Kg</th><th>Fecha</th></tr>'+rows+'</table>';}
+  if(keys.length===0)lh.innerHTML='<p class="muted" style="font-size:.84rem;margin-top:8px">Todavía sin cargas.</p>';
+  else lh.innerHTML='<table><tr><th>Ejercicio</th><th>Ser.</th><th>Reps</th><th>Kg</th><th>Fecha</th></tr>'+keys.map(ex=>'<tr><td>'+esc(ex)+'</td><td>'+(latest[ex].series!=null?latest[ex].series:"—")+'</td><td>'+(latest[ex].reps!=null?latest[ex].reps:"—")+'</td><td>'+(latest[ex].kg!=null?latest[ex].kg+" kg":"—")+'</td><td>'+latest[ex].date.slice(5)+'</td></tr>').join("")+'</table>';
 }
 /* ---------- TABS ---------- */
 document.querySelectorAll("#tabbar button").forEach(b=>{b.onclick=()=>{document.querySelectorAll("#tabbar button").forEach(x=>x.classList.remove("on"));b.classList.add("on");document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(b.dataset.v).classList.add("active");window.scrollTo(0,0);};});
